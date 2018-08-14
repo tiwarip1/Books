@@ -1,0 +1,499 @@
+\documentclass[arial]{article}
+\usepackage[version=4]{mhchem}
+\usepackage{mathrsfs,relsize,makeidx,color,setspace,amsmath,amsfonts,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{bm,ltablex,microtype}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[top = 1in, bottom = 1in, right = 1in, left = 1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{blindtext}
+\usepackage{MnSymbol,wasysym}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+\newcommand{\dbar}{d\hspace*{-0.08em}\bar{}\hspace*{0.1em}}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+
+\begin{document}
+
+\title{What the fuck is going on?}
+\maketitle
+
+
+\section*{Why Pawel is a straight up cunt}
+So there are many things that Stat Mech wants us to know. You better remember this shit or you're fucked cuz' this is like PHY 183 all over again where we have to remember a shit ton of equations because they work and we need them, to do things.
+
+\section*{Multiplicity}
+Alright kiddies, come around and let me tell you a story of what you're most likely to do during this class. Cry, the probability you will cry is $\approx$100\%. But hey, we can actually calculate the probability of that and to do so we will need to use something called multiplicity. So if you've taken quantum before, this is basically degeneracy. If you haven't multiplicity is a number that can tell you how likely a certain event will occur out of a total number of events. I'll talk about examples of this later on. The most likely case you will have with multiplicity is with a binary spin state of some kind.
+
+\subsection*{Binary Spin State}
+Alright, so it's a little hard to make sense of the statement above without using an example because mouth words are hard.
+Say we have a system with 4 particles that can have either spin up or spin down. 
+\begin{equation}
+\uparrow \downarrow \downarrow \downarrow
+\end{equation}
+These are our 4 particles and they are in a specific spin state. This is called a microstate, where particle 1 has spin up, particle 2 has spin down, 3 has spin down and 4 has spin down. This is different from a macrostate, which only requires that 3 are spin down, while 1 is spin up. That is really the difference between micro and macro-states, remember that if you're asked for something's microstate, it can be different from if you were asked for the macrostate of that same thing.
+\vspace{3mm}
+
+Now that we have the problem setup, we can find the multiplicity of it.
+\begin{equation}
+g=\frac{N!}{N\uparrow!  N\downarrow!}
+\end{equation}
+Where g is the variable for multiplicity, N is the number of particles in the system and the arrows signify whether the particle is spin up or down, so in this case, N$\uparrow$=1 and N$\downarrow$=3. If you took some kind of math class, this is also known as N choose N$\uparrow$N$\downarrow$. And yes, those are all factorials, I'm not just excited to say N, so be careful when you have a system with a large number of particles.
+\vspace{3mm}
+
+K, so now we have that, we can just plug in and find the multiplicity
+\begin{equation}
+g=\frac{4!}{1!  3!}=\frac{24}{6}=4
+\end{equation}
+What this means is that there are 4 possible microstates that can have this type of macrostate So the possible combinations are $\uparrow \downarrow \downarrow \downarrow$ , $ \downarrow\uparrow \downarrow \downarrow$ , $\downarrow \downarrow \uparrow\downarrow$ , $\downarrow \downarrow \downarrow\uparrow$. The macro-state in which we are referring to is a system with 3 spin down and 1 spin up particle. 
+
+\subsection*{Probability of you crying}
+Remember when I said we could find the probability of you crying, I wasn't joking and here's how we do it. But first, lets get through an easy case to tell you how this stuff works. We can find the number of microstates that can exist in a specific macrostate and use that and take the total number of microstates in all possible macrostates and divide them. Basically, find the mutliplicity of one state, then the multiplicity of all states and divide them. If you already have a headache, it's ok. I had that too when I was trying to wrap my head around this stuff.
+\begin{equation}
+P=\frac{g_1}{\sum_{}^{}g}=\frac{e^{\frac{-\epsilon_s}{\tau}}}{Z}
+\end{equation}
+Where g$_1$ represents the multiplicity of a specific macrostate and Z is the partition function. So in our case, we know the multiplicity of a certain macrostate, now we just have to find the multiplicity of all other possible states and just plug and chug. You can do this by something very simple. The total number of microstates in all macrostates for this system is 2$^N = 2^4 = 16$. So that's the stuff that goes in the denominator. Now we use the equation to get 1/4, so a 25\% chance that will happen.
+\vspace{3mm}
+
+Back to the topic of your excretion of tears. If you were being taught by someone other than Pawel, the total multiplicity would be about twice as large as that of the multiplicity of you crying, but since Pawel is your teacher, it's like having a total number of microstates of you not crying, like actually learning something are on the order of 2$^{-\infty}$. So you have no chance, just accept it.\\
+\\
+Later on when we start dealing with the grand partition function, we can get the probability using it with the following:
+\begin{equation}
+P(n)=\frac{1}{\zeta}e^{\frac{n(\mu-\epsilon)}{\tau}}
+\end{equation}
+\subsection*{Stuff about s=Nup-Ndown/2}
+
+\subsection*{approximation of multiplicities, 2$^{N}$}
+
+\subsection*{Approximation for g(s)}
+
+\section*{Expectation value of some random function}
+The expectation value of a good nights sleep is in the imaginary plane, so it has to real components
+\vspace{3mm}
+
+Alright, so expectation values is the same thing as average value, not to be confused with the value that is most likely to occur within a system. I've made that misconception before, I mean what? I'm perfect and have no misconceptions...You heard nothing. Moving on, the way we find the average value of some random function is by doing the following:
+\begin{equation}
+\langle f(s) \rangle =\sum_{s}f(s)P(s)
+\end{equation}
+Where P(s) is the probability of something to happen, which is 1 if the summation is over all possible states, which it is.
+This section needs some serious work, I don't even see the point of it since there are many variables that have their own equations for finding average values
+\section*{Saddle Points}
+I showed your mom a saddle point approximation last night
+\vspace{3mm}
+
+All truths aside, saddle points are a mathematical thing where in a 3-D plan, you can have a function that makes a plane that looks like a saddle. This saddle is neither a local nor global min or max, it's just a point on a plane, but it can still be important for some reason. Now a point like this, we can use techniques we used to find mins and maxes from Calc. 3, but we may need to know around where this point lies.There is an approximation we can use to find this very thing, but it requires a few steps to get there. So the saddle point equations you'll see will look like this:
+\begin{equation}
+I = g(x) e^{f(x)}
+\end{equation}
+If it doesn't look like this, change it to look like it, if that doesn't work, I'm sorry $\frownie{}$
+\vspace{3mm}
+
+First thing we do, take f(x) and take two derivatives with respect to x. The first derivative of f(x) can be set to equal 0, once this has been done, solve for x and label that as x$_0$. Then just plug everything into the following equation:
+
+\begin{equation}
+I \approx \sqrt{\frac{2\pi}{f''(x)}} g(x_0) e^{f(x_0)}
+\end{equation}
+And there you have it, an approximate location to the saddle point
+\section*{Coupled Systems: Things touch, don't get too excited thinking about it:  NEEDS WORK!}
+Talk about how systems can interact and exchange particles, energy and volume along with coupled systems and multiplying the multiplicities of each system to get that of a coupled system, new approximations for multiplicity
+I don't think I understand this either, I need help with this part\\
+\\
+Two systems can be in thermal contact with one another, when they are temperature can be exchanged between the two systems and for temperature specifically, the total temperature is just the average of the temperatures of the systems that are in thermal contact with one anther:
+\begin{equation}
+\tau_{total}=\frac{\tau_1 + \tau_2 + \tau_3 + ... \tau_N}{N}
+\end{equation}
+Helmholtz Free energy for a combined system can be found by the following:
+\begin{equation}
+dF=\bigg[\bigg( \frac{\partial F_1}{\partial N_1}\bigg)_\tau -\bigg(\frac{\partial F_2}{\partial N_2}\bigg)_\tau \bigg] dN_1
+\end{equation}
+This can tell the change in Free Energy with respect to the change in particle number for system 1, so this will tell the amount of usable work that can be extracted from the system during this process (Refer to Helmholtz Free Energy). At equilibrium, this will be 0 and it should be noted that this is only if the systems have the same temperature.
+
+\section*{Entropy and how to find it}
+According to wikipedia, entropy is measure of uncertainty or mixedupness of a system, or also known as a measure of the number of ways a system can be arranged, which can be equated to meaning the amount of disorder within a system. Yes, I understand it's confusing, I don't fully understand it either. If you want a thermodynamic definition, entropy is a representation of the unavailability of work that can be done with the heat present in a system. Enough with trying to figure out what entropy actually is, we can calculate it so maybe that will help with understanding what it is. We can relate entropy for Helmholtz free energy by the following equations:
+\begin{equation}
+\sigma =-\bigg(\frac{\partial F}{\partial \tau}\bigg)_V
+\end{equation}
+This actually tells us that $\partial U / \partial \tau$ = -1 apparently, so the $\tau$ derivative of U is negative with increasing $\tau$. You can get part of this equation from the definition of Helmholtz Free Energy.
+\vspace{3mm}
+
+Alright, so think of it this way, F=$\log(Z)$ and Z is the partition function, which is also the sum of all multiplicities in a system, you can see this if you compare the definitions of Z and the denominator of the probability of a certain multiplicity within a system. Since we use F to find entropy, that means that it is related to the total multiplicity of a system by the following:
+\begin{equation}
+\sigma =-\bigg(\frac{\partial F}{\partial \tau}\bigg)_V = -\bigg(\frac{\partial \log(Z)}{\partial \tau}\bigg)_V=-\bigg(\frac{\partial \log(\sum_s(e^\frac{-\epsilon_s}{\tau}))}{\partial \tau}\bigg)_V=-\bigg(\frac{\partial \log(\sum_sg)}{\partial \tau}\bigg)_V
+\end{equation}
+ What is the most probable state to occur in a system with N particles in it? It would be the macrostate with the most disorder in it, or in the case of the 4 particles in a binary spin state, 2$\uparrow$ and 2$\downarrow$ which is also the macrostate with the most disorder.
+\section*{Fundamental Temperature}
+Fundamental temperature is temperature, but in such a way that we can relate it to other fundamental properties like entropy and stuff more easily, since we would have to constantly multiply Boltzmann's constant with temperature in Kelvin to have any kind of meaningful relation for the purposes of calculating. Fundamental temperature can be related to regular normal people temperature by:
+\begin{equation}
+\tau = k_B T
+\end{equation}
+Where k$_B$ is Boltzmann's constant and T is temperature in Kelvin. $\tau$ is unitless as is $\sigma$, which is why we need $\tau$ instead of T, because we would have to constantly correct for the units with k$_B$'s all over the place. I've been talking about $\tau$ and $\sigma$ a bit, but no relation between them, well here it is:
+\begin{equation}
+\frac{1}{\tau}=\bigg(\frac{\partial \sigma}{\partial U}\bigg)_{N,V}
+\end{equation}
+Now you would expect entropy to increase with increasing energy, but apparently that is inversely proportional to temperature, which is a little confusing as you would expect temperature to increase with energy.
+
+\section*{Energy and how to find it}
+We can find energy from Helmholtz free energy and adding a few things. But the important thing is that it is also dependent of the partition function, which means that energy would be larger for a large number of particles compared to if it had fewer particles. Either way, on to the equation:
+\begin{equation}
+U=\tau^2 \sigma = \tau^2 \frac{\partial \log Z}{\partial \tau}
+\end{equation}
+This is also apparently the average energy of a system, so use that knowledge as you will. It should be noted that energy can be related to average kinetic energy by:
+\begin{equation}
+U=N<\frac{p^2}{2M}>
+\end{equation}
+Where N is the particle number, while p$^2$/2M is the kinetic energy. If we look more into this in the case of an ideal gas, we will find that:
+\begin{equation}
+p\approx	\sqrt{M\tau}
+\end{equation}
+If this looks familiar, it should since it's the denominator of the quantum volume and it we take it to the power of the numbers of degrees of freedom, which in the case of ideal gases at room temperature is 3, we get a term closer to the quantum volume.
+\vspace{3mm}
+
+It should be noted that we can differentiate U with respect to other variables and the following equation is useful to see how energy relates to other thermodynamic properties of a system:
+\begin{equation}
+dU=-pdV +\tau d\sigma +\mu dN
+\end{equation}
+This equation is very similar to the differentiated equation for Helmholtz Free Energy. These equations with derivatives can provide a significant amount of information about how a system with behave compared to just knowing what the energy of an ideal gas is and writing it down, so they are worth remembering
+\section*{The 4 laws and shit..woo..science}
+\subsection*{Zeroth Law}
+If two systems are in thermal equilibrium with a third system, they are in thermal equilibrium with each other. This is mostly used to define what temperature actually is.
+\subsection*{First Law}
+When energy passes, as work, heat or with matter into or out of a system, the system's internal energy changes in accordance with energy conservation. Basically saying that perpetual motion machines that don't have any input energy are impossible by nature.
+\subsection*{Second Law}
+The sum of the entropies of interacting thermal systems increase, or total entropy always increases
+\subsection*{Third Law}
+Entropy goes to 1 the closer temperature gets to absolute 0
+
+\section*{What the fuck is pressure? I dunno ask someone who gives a shit}
+Pressure is just the force applied to a certain area of some surface. This is dependent on the particle number and the temperature of the system. Something cool is negative pressures, which can be found in the cosmological constant and by the Casimir effect, which apparently causes a small attractive force due to interactions with vacuum energy. This is actually pretty cool, because vacuum energy relates the uncertainty of energy at very small time scales that are exemplified by the uncertainty principle and equates that to the creation of virtual particles that blink into existence but can still cause a force on nearby objects, like causing a negative pressure.
+\vspace{3mm}
+
+The only thing we need to know for this class is how to find pressure, one way is through the ideal gas law, but another is:
+\begin{equation}
+p=\tau \bigg(\frac{\partial F}{\partial V}\bigg)_U
+\end{equation}
+
+\section*{Partition Function}
+talk about what it is, what it is for 1 particle and many
+
+If you've taken quantum, the partition function is kinda like the wave function, where it tells you information about the system, but by itself it's meaningless. The partition function is a definition of something that you can use to find Helmholtz Free Energy, which is used to find entropy and pressure. It is defined as:
+\begin{equation}
+Z=\sum_{s}^{}e^{-\frac{\epsilon_s}{\tau}}
+\end{equation}
+Where $\epsilon_s$ is the energy of particle s. This may not seem useful, but you can take a part of the partition function with a specific energy and use that for any calculations that you need to do instead of having an annoying summation symbol and that is what you will use it for many a times.
+\vspace{3mm}
+
+To get something for a larger system, you can use the partition function described above and just multiply it by a few things to get it to work with a many particle system. The equation to do such is the following:
+\begin{equation}
+Z_N=\frac{Z_1^N}{N!}=\frac{(n_QV)^N}{N!}
+\end{equation}
+Where n$_Q$ is $\frac{M\tau}{2\pi\hbar}^\frac{3}{2}$ and V is volume. I added an extra definition of Z$_1$ just in case.
+
+\section*{Helmholtz Free Energy}
+Helmholtz Free Energy can tell you how much usable work can be extracted from a system or process, but only if Helmholtz free energy changes can it be used for this purpose. That is cool, but unimportant as we will be using it to find other stuff. Helmholtz Free energy well hereby be referred to as F, as I don't want to keep saying that guy's long ass name.
+F can be related to the partition function by the following:
+\begin{equation}
+F=-\tau \log(Z)
+\end{equation}
+We can relate F to other things because reason and other people are pretty smart by the following:
+\begin{equation}
+F=U-\tau\sigma\qquad
+dF=-\sigma d\tau -pdV+\mu dN
+\end{equation}
+Don't ask where the extra terms came from when we took the derivative, I just found this stuff on wikipedia. We can take derivatives of this equation to find other variable, which is actually what we are going to be talking about \smiley
+
+\begin{equation}
+\sigma=-\bigg(\frac{\partial F}{\partial \tau}\bigg)_{V,N}\qquad
+p=-\bigg(\frac{\partial F}{\partial V}\bigg)_{\tau,N}\qquad
+\mu=\bigg(\frac{\partial F}{\partial N}\bigg)_{\tau,V}\qquad
+\end{equation}
+The variable on the bottom left of the equation mean that the system has constant values for that variable. You can see that if you just take a specific derivative of the previously mentioned equation, you can arrive at these same values. F is pretty useful, just look at all the stuff we can find from this one variable.
+
+\section*{Partition Function and quantum mechanics}
+So you know how in quantum mechanics, you can find the energy of a particle in a box, well that energy can be used in the partition function, which as you can see from above gives us all the information we want. Now knowing that, calculate the mass of alpha centauri cuz' apparently this partition function is like the hitchiker's guide to the galaxy, where it has all the information you would ever need. Moving on, you should be able to find the energy of a 3-D box and then use that as $\epsilon$ and find everything else from that.
+
+\section*{Quantum volume and Quantum concentration}
+So, quantum concentration[n$_Q$] is number of particles within a volume that is very small, so small that quantum effects become appreciable and if the actual concentration of particles is on the order of or larger than quantum concentration, weird quantum shit starts to go down. But here's the equation:
+\begin{equation}
+n_Q=\bigg(\frac{M \tau}{2\pi \hbar^2}\bigg)^{\frac{3}{2}}
+\end{equation}
+Where M is the mass of the particles in the system. This isn't all that useful on its own, but you can use it to simplify some terms down to being more manageable, it's also used in the Sackur-Tetrode equation and even relates to actual concentration.
+\vspace{3mm}
+
+Quantum volume is supposed to be the smallest volume in which a particle of some kind could occupy. The value for quantum volume is:
+\begin{equation}
+V_Q=\bigg( \frac{2\pi \hbar^2}{M\tau	} \bigg)^{\frac{3}{2}}
+\end{equation}
+This can also be used to find chemical potential as a function of $\tau$ by:
+\begin{equation}
+\mu = \tau \log	(n V_Q)
+\end{equation}
+Where n=N/V. You may notice that quantum concentration and quantum volume are reciprocals of one another, that isn't a typo. The product of quantum concentration and quantum volume is 1, so I guess you can use that to check whether what you have is correct or not.
+\section*{Da Bayou, also known as Debye}
+Debye's model is a thing that estimates the contributions phonons have to the specific heat of a solid in the sense that is treats eat of a solid as phonons in a box and correctly predicts the heat capacity at small temperatures ($\tau^3$ dependence) and at high temperatures (Plateau at some point), however suffers accuracy at intermediate temperatures.
+
+\subsection*{Debye Temperature}
+The debye temperature is variable that can tell you the temperature in which a crystal can have oscillations where each particle has the same frequency and phase of vibration. We will really only be caring about the highest temperature, which can be found by:
+\begin{equation}
+\theta_D=\frac{\hbar\nu_m}{k_B} = \frac{\hbar \nu_s}{k_B}\bigg(\frac{6\pi^2 N}{V}\bigg)^\frac{1}{3}
+\end{equation}
+Where $\nu_m$ is the debye frequency and $\nu_s$ is the speed of sound in that material. The debye frequency can be used to find heat capacity, as is the purpose of the debye model of a crystal. This is interesting since it uses the debye temperature to do so, which intern means it uses the speed of sound of a material to get the heat capacity. The relation may be easier to see with the actual equation for it:
+\begin{equation}
+C_V=\bigg(\frac{\partial U}{\partial \tau}\bigg)_V = \frac{12 \pi^4N}{5}\bigg(\frac{\tau}{k_B \theta}\bigg)^3
+\end{equation}
+The first part is just the definition of heat capacity as it relates to energy. You probably don't have to remember this, but it may be worth nothing that the higher the speed of sound is in the crystal in question, the lower the heat capacity. Now, the speed of sound is just the speed at which a compression wave moves through a material. This would be dependent on how closely the lattice of the crystal is structured and how rigid it is, so steel, which is just an iron lattice layers with a bunch of carbon to keep those layers from moving and therefore more rigid, has a higher speed of sound within it than iron does. So it would have a higher heat capacity. The specific heat of steel is 510 J/kg-K while for iron it's 460 J/kg-K.
+
+\subsection*{Debye Frequency}
+We talked about the debye frequency above and the equation for it is also given, so I'll just talk about what it means. The Debye frequency is a theoretical maximum frequency of the vibration of atoms within a crystal. This was originally used to find heat capacity, but to do so Debye had to make some approximations and an assumption that there is a maximum allowed phonon frequency, which is now called the debye frequency.
+
+\section*{Plank Distribution}
+The Plank Distribution is an equation that is just the expectation value of of a certain mode to occur when a wave has a certain energy $\epsilon=s\hbar\omega$. S plays the same role as telling you the amplitude and we can find the average value of a wave with a certain energy having that amplitude.
+\begin{equation}
+\langle s \rangle =\frac{1}{e^{\frac{\hbar \omega}{\tau}}-1}
+\end{equation}
+So this distribution can tell us the thermal average number of photons with a certain frequency and this can be used to find the average thermal energy of this mode bye doing the following:
+\begin{equation}
+\langle \epsilon \rangle = \langle s \rangle \hbar \omega
+\end{equation}
+Basically, this just takes the average number of photons with that frequency and multiplies them with the things to get the correct units, which happens to be $\hbar \omega$ and that's the average thermal energy of that frequency. This can be expanded to include all types of waves, not just photons if you have an energy dependence on frequency. This is cool because we could use the De Broglie wavelength and get the energy and frequency from that, so we can calculate the average number of electrons and their average energy using this. If we want to find the total energy of a system, we can take the sum of all values of s within the system:
+\begin{equation}
+U=\sum_{s} \langle \epsilon_s \rangle = \sum_{s} \langle s \rangle \hbar \omega
+\end{equation}
+
+\section*{Average occupancy}
+Average occupation is the average number of particles that occupy a certain energy within a system. So imagine we have a system and it has multiple energy levels that can be filled by an arbitrary number of particles. How would we find the average? Well its a similar way to how we did it in finding the expectation values in quantum, where we have:
+\begin{equation}
+\langle x \rangle = \frac{\int x |\Psi|^2 dx}{\int |\Psi|^2 dx}
+\end{equation}	
+But instead of integral signs and $\Psi$'s, we have sums and Gibbs factors:
+\begin{equation}
+\langle N\rangle=\frac{\sum_{N=0}X(N,s)e^\frac{N\mu-\epsilon}{\tau}}{\sum_{N=0}e^\frac{N(\mu-\epsilon)}{\tau}} =\frac{\lambda}{\zeta}\frac{\partial \zeta}{\partial \lambda}
+\end{equation}
+Where $\zeta$ is the Gibbs Sum of that system and $\lambda$ is called absolute activity and is defined as:
+\begin{equation}
+\lambda = e^\frac{\mu}{\tau}
+\end{equation}
+Since $\lambda$ is dependent on $\mu$ an equation for the thermal average would have the same form, but replace $\lambda$ with $\mu$
+
+\section*{Gibbs Sum}
+Not really sure what the Gibbs sum is, but it is used to find the thermal average number of particles. If we have a number of particles N that can have energies $\epsilon_s$, we can define the Gibbs Sum as:
+\begin{equation}
+\zeta = \sum_{ASN}\lambda^N e^\frac{-\epsilon}{\tau}
+\end{equation}
+
+\section*{Heat Capacity}
+Heat capacity is a quantity that can tell how much energy you need to input into a system to raise it by a certain temperature. It can be related only to energy, so to find heat capacity you will need to find energy as a function of $\tau$:
+\begin{equation}
+C_V = \frac{\partial U}{\partial \tau}
+\end{equation}
+This is pretty straight forward, just know that if you're talking about debye stuff and crystals, the C$_V$ may be not so simple and may require the debye temperature to calculate. Moving on to heat capacity at a constant volume, the stuff above was only things at constant pressure. C$_P$ tends to be larger than C$_V$ since extra work is done to make the container expand and this must be present in C$_P$. For an ideal gas:
+\begin{equation}
+C_P = C_V+N
+\end{equation}
+Since C$_V$ can depend on temperature, I didn't say C$V$ is (3/2)N, as it may even change depending on the molecule you are  using.
+
+\section*{Stefan-Boltzmann Law}
+The Stefan-Boltzmann Law is an equation that describes the power that is radiated from a blackbody as it relates to temperature. This grows quickly at large temperatures, as you can see from the equation below:
+\begin{equation}
+j^*=\sigma T^4
+\end{equation}
+Where $\sigma$ is a constant and is 5.67E-8. If an object does not absorb all incident radiation, it is called a grey body and you can find the j$^*$ value of that by just multiplying that by the emissivity.
+
+\section*{What is Sackur-Tetrode}
+This is an equation for entropy for a monatomic classical ideal gas and it's special because it includes quantum oddities with the addition of quantum concentration into the equation:
+\begin{equation}
+\sigma = N[\log \bigg(\frac{n_Q}{n}\bigg)+\frac{5}{2}]
+\end{equation}
+Where n$_Q$ is quantum volume and n=N/V. We can solve for other variables within n$_Q$ and have an equation that relates that to $\sigma$. Apparently we can derive this from Boltzmann's gas statistics and entropy equations. Something to note is that as n gets closer to n$_Q$, quantum mechanics starts to mess with the system, which is why Sackur-Tetrode exists, if n$_Q$ is not close to n, then we can use normal equations for finding entropy.
+
+\section*{Chemical Potential}
+Chemical potential governs how particles will move between systems, an example of this would be current through a wire, electrons are flowing between systems of copper wires and to do so there would have to be a potential of some sort to allow for this movement, this potential is the chemical potential, which is the same thing as voltage, but used in different ways.
+Chemical Potential is defined as:
+\begin{equation}
+\mu(\tau,V,N)\equiv \bigg(\frac{\partial F}{\partial N}\bigg)_{\tau,V}
+\end{equation}
+We can also write it as
+\begin{equation}
+\mu = \bigg(\frac{\partial U}{\partial N_i}\bigg)_{\sigma,V,N_{j\neq i}}
+\end{equation}
+The whole N$_{j\neq i}$ thing means that the number of particles that varies must be of the same type, so if we have a mixture of nitrogen and oxygen, we have to change the amount of only oxygen or only nitrogen at any given time, not both at the same time for this equation to work.
+\section*{Fermi Energy}
+This is actually a concept from quantum mechanics which refers to the energy difference between the highest and lowest occupied single particle states for non interacting fermions and absolute zero. Ok, this is very specific not really sure, but apparently is often used in condensed matter physics.
+
+\section*{Fermi Level}
+Not to be confused with Fermi Energy, even though the definitions are reversed in different fields. The Fermi level is the total chemical potential for electrons and signifies the amount of work needed to add one electron to a body. This is also used in Solid-State Physics and how this relates to electron band structures.
+
+\section*{Helmholtz with internal and external contributions}
+To start off with an example, imagine classical potential of some object that has terms that are contributed from different things, like gravity or a spring of some kind, if we take the gradient of that we can get a force, which we use to find the motion of that object. Well Helmholtz Free Energy does a similar thing, where it can have gravity as a term that can affect the energy and how the system behaves. But not only that, you remember when Pumplin looked at some equation and said, "Oh that looks like a spring", well if we have something like maybe a variable magnetic field acting on nuclide, they could cause a force that basically acts like spring and we can get information on how the system would behave under these circumstances using the internal and external contributions to Helmholtz Free Energy.
+
+\section*{Canonical Ensembles}
+Ok, so if you google most of the stuff that is in this document, you'll hear the term ensemble be brought up many a times, this is because what we are talking about is related to ensembles, but is not exactly it. If you're wondering, canonical ensembles are used in the GRE, so I would highly suggest knowing what they are because you won't be taught in this class. At the beginning of the semester, we used to find properties of things like temperature and entropy from energy assuming a constant particle number. I forget the name of this, but it is some kind of ensemble, I'll just call it a lesser ensemble or something like that. Then we moved on the Helmholtz Free Energy, which told us how to get some other thermodynamic properties of a system using more information, this is a regular ensemble or something like that. Then we moved on to using chemical potential and Gibbs Factor and grand potential and we'll use this to find more thermodynamic properties of a system, this is called a grand ensemble. When I say that things are some kind of ensemble, I mean they relate to it in some may.
+
+\section*{Grand Partition Function}
+Talk about how it relates to average occupancy as well
+its like the partition function, but with a variable number of particles
+
+The grand partition function is represented by the variable $\zeta$ and is very similar in concept and usage to the partition function, but can be used in a broader range of circumstances. Like the partition function, its main purpose is to give form to the grand potential function, which is used to find thermodynamic properties of a system. We can calculate $\zeta$ by taking the exponential of the Gibbs factor:
+\begin{equation}
+\zeta (\mu,\tau)=\sum_{s} e^{\frac{N\mu -\epsilon_s }{\tau}}
+\end{equation}
+This is also called the Gibbs Sum or the grand sum, but we'll call this the grand partition function. We will use this to find the grand potential function, which we use to get thermodynamic properties of the system. The difference between the grand partition function and the partition function is that the grand partition function can have a variable particle number.
+
+\section*{Grand Partition Function with Multiple Internal Energies}
+
+\section*{General Things with internal contributions}
+So, we talked about how Helmholtz Free Energy has internal and external contributions to it, but we didn't talk about how to find it and the subsequent thermodynamic properties of a system with this additional term. We'll be dealing with the internal contributions for this part. When we consider something with two contributions to its energy, we can split them up into two separate systems and add the two terms together at the end. So, say we have an external energy $\epsilon$ and internal energy $\delta$. If we want to find the total partition function for this, we can express it as:
+\begin{equation}
+Z=Z_{Ext}+Z_{Int} = e^\frac{-\epsilon}{\tau}+e^\frac{\delta}{\tau}
+\end{equation}
+We will have to split up all subsequent values that we derive from the partition function into its internal and external parts and sum them together at the end. But to relieve you of any stress, these properties are derived the same way for the internal part as it is for the external parts, so no new equations, just remember this concept.
+
+\section*{Grand Potential}
+The Grand potential function, like Helmholtz Free Energy can give information on the thermodynamic properties of a system by:
+\begin{equation}
+\Omega=\tau \log (\zeta)
+\end{equation}
+This is pretty commonly used to get $\Omega$ from the grand partition function and then on the other things. But there was a Helmholtz Free Energy equation with derivatives and it can be useful especially since we wont have to remember 3 equations, just 1 and take partial derivatives where needed.
+\begin{equation}
+d\Omega = pdV - \sigma d\tau -Nd\mu
+\end{equation}
+Ya, so just take partials where needed and you should be good to go. Just one more thing to note, if we integrate all this stuff, the integral of pdV is actually energy as it turns out, not sure why but that's how it is. So if you want to find energy and you have a bunch of information, this could be useful:
+\begin{equation}
+U=\Omega +\sigma \tau + \mu N
+\end{equation}
+
+\section*{Thermodynamic Identities}
+Below is a summary table of thermodynamic identities and this is derived from the definitions of Energy and Helmholtz Free Energy.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c c c c||} 
+		\hline
+		 & $\sigma$(U,V,N) & U($\sigma$,V,N) & F($\tau$,V,N) \\ [0.5ex] 
+		\hline\hline
+		$\tau$: & $\frac{1}{\tau}=\Big(\frac{\partial \sigma}{\partial U}\Big)_{V,N}$ & $\tau=\Big(\frac{\partial U}{\partial \sigma}\Big)_{V,N}$ & $\tau$ is independent of F \\ 
+		p:&$\frac{p}{\tau}=\Big(\frac{\partial \sigma}{\partial V}\Big)_{U,N}$ & $-p=\Big(\frac{\partial U}{\partial V}\Big)_{\sigma,N}$ & $-p=\Big(\frac{\partial F}{\partial V}\Big)_{\tau,N}$ \\
+		$\mu$: & $\frac{-\mu}{\tau}=\Big(\frac{\partial \sigma}{\partial N}\Big)_{U,V}$ & $\mu=\Big(\frac{\partial U}{\partial N}\Big)_{\sigma,V}$ & $\mu=\Big(\frac{\partial F}{\partial N}\Big)_{\tau,V}$ \\ [1ex] 
+		\hline
+	\end{tabular}
+	\label{table:1}
+\end{table}
+
+\section*{Bose-Einstein vs. Fermi-Dirac			\hspace{6.7cm}\textbf{FIGHT!!}}
+So, the Bose-Einstein distribution and Fermi-Dirac distribution, they are basically functions that model the same thing, but with particles of different properties.
+\vspace{3mm}
+
+The Fermi-Dirac distribution is a bit of math that can tell you the distribution of identical fermions with the same energy over some range, where some fermions can have the same energy. The equation is:
+
+\begin{equation}
+f(\epsilon)=\frac{1}{e^{\frac{\epsilon-\mu}{\tau}+1}}
+\end{equation}
+
+The Bose-Einstein distribution is a bit of math that can tell you the distribution of identical bosons with the same energy over some range, where some fermions can have the same energy. The equation is:
+
+\begin{equation}
+f(\epsilon)=\frac{1}{e^{\frac{\epsilon-\mu}{\tau}-1}}
+\end{equation}
+
+You may notice that I just copy pasted two definitions and switched 1 word, well surprise, that's exactly what I did and that is what these equations do the Bose-Einstein distribution talks about bosons, things with spin integer, while the Fermi-Dirac distribution talks about fermions, things with half-integer spins, since they all act differently especially when we talk about systems with few particles. However, these two equations act the same when we have a large number of particles, which is called the classical regime.
+\vspace{3mm}
+
+Why is any of this shit useful you may ask? Well let me tell you because you totally asked me this question and I'm not just talking to myself. We can find the average number of of a fermion or boson being at a certain energy by just multiplying the multiplicity of this even to occur with the distribution that can be used in this case. In the classical cases, both distributions act like:
+\begin{equation}
+f(\epsilon)=\lambda e^\frac{-\epsilon}{\tau}
+\end{equation}
+And if you want to find the total number of particles, it's just the sum of $f(\epsilon)$ over all $\epsilon$
+
+\section*{Ideal Gases and Shit}
+So, PV=N$\tau$ is a thing, use it when you can.
+
+\section*{Fermi Gas}
+A Fermi Gas is a bunch of fermions in one place that are in such a state that they follow Fermi-Dirac Statistics. So since they follow this, we can use the Fermi-Dirac equation to find the occupancy. If we assume the gas exists at low $\tau$, then we can make an approximation of the Fermi-Dirac equation such that if $\epsilon<\mu$, then the occupancy is 1 and 0 if $\epsilon>\mu$.\\
+\\
+Alright, so I'm gonna talk about the fermi energy and how it relates to a Fermi gas. So the Fermi energy is the highest energy level that can be obtained by the gas in an infinite potential cube and is characterized by:
+\begin{equation}
+\epsilon_F=\frac{\hbar^2 \pi^2 n_F^2}{2mL^2}=\frac{\hbar^2}{2m}\bigg(\frac{3\pi^2N}{V}\bigg)^\frac{2}{3}=\frac{\hbar^2}{2m}(3\pi^2n)^\frac{2}{3}\equiv\tau_F
+\end{equation}
+Where n$_F$ is the Fermi number and $\tau_F$ is the Fermi Temperature. As a side note, a Fermi Gas is also called a degenerate gas, which means that all the pressure caused by this gas can be almost exclusively from the Pauli Exclusion Principle. This only happens below a certain point called the Fermi Temperature, not sure how to derive it, but it exists and I imagine we will be given this information when needed. This is cool because it implies that the gas doesn't interact with anything else at sufficiently small temperatures. Now we can actually calculate the temperature of this rather simply, since we are working with a very specific situation, we can just remember a formula for the energy:
+\begin{equation}
+U=(3/5)N\epsilon_F
+\end{equation}
+And if we want the average energy, we can just divide both sides by N.\\
+\\
+Now, Fermi Gases can have a thermal average occupancy and it needs to be appropriate for the quantum regime, I'll just state the equation for it, as it will be useful later on:
+\begin{equation}
+f(\epsilon)=(n/n_Q)e^\frac{-\epsilon}{\tau}
+\end{equation}
+
+\section*{Density of States}
+This thing is pretty useful, since we can actually calculate the number of particles in a system and its total kinetic energy by using the density of states and the distribution function. The Density of States function $[\mathcal{D}(\epsilon)]$ refers to the solution of a single particle in a certain orbital, instead of a larger N particle system. I would suggest you look at the derivation, as it is pretty intuitive, but here's the definition for a spin 0 particle:
+\begin{equation}
+\mathcal{D}(\epsilon)=\frac{gV}{4\pi^2}\bigg(\frac{2m}{\hbar^2}\bigg)^\frac{3}{2}\epsilon^\frac{1}{2}
+\end{equation}
+Now we can use this density of states to find the Energy and Number of Particles present using the following:
+\begin{equation}
+U=\int_{0}^{\infty}\epsilon \mathcal{D}(\epsilon) f(\epsilon,\tau,\mu) d\epsilon
+\end{equation}
+\begin{equation}
+N=\int_{0}^{\infty}\mathcal{D}(\epsilon) f(\epsilon,\tau,\mu) d\epsilon
+\end{equation}
+These equations are for the total number of particles and total kinetic energy of the particles in question. To find the same things for particles in the ground state, you just integrate from 0 to $\epsilon_F$ and make $f(\epsilon,\tau,\mu$)=1 and if you need to find other values, just do something along those lines. Often times, you can use the Fermi-Dirac distribution to represent $f(\epsilon,\tau,\mu)$ to solve these problems. Moving on to Heat Capacity:
+\begin{equation}
+C_V=\frac{\partial U}{\partial \tau}=\int_{0}^{\infty}\epsilon \mathcal{D}(\epsilon) \frac{\partial f(\epsilon,\tau,\mu)}{\partial \tau} d\epsilon
+\end{equation}
+You could go through an absolutely terrible derivation to find this, or just trust me but the heat capacity for a metal is a combination of the heat capacity caused by the electrons and phonons and can be related using the following:
+\begin{equation}
+C_{metal}=C_{electron}+C_{phonon}=A\tau + B\tau^3
+\end{equation}
+And if we were given a graph, then we can find the y intercept as being A and the slope being B for a graph of C$_V$/$\tau$
+
+\section*{Bosons at Low Temperatures}
+So we know that bosons occupy the lowest energy state an accumulate there, photons are something that do this and the occupancy of the ground state for a system of only bosons is basically the particle number, which can be found by using the Bose-Einstein Distribution. In the macroscopic state, the number of bosons is:
+\begin{equation}
+N_0=\frac{\tau}{\epsilon_0-\mu}
+\end{equation}
+\section*{Chapter 8: Heat and Work}
+Alright, so heat is a change of a system's energy through external means, like a hot plate on a system. Work is a change of a system's energy through changing thermodynamic properties, like a change in pressure or volume. As you may be able to tell by now, entropy changes with energy and temperature, but there is an equation for this:
+\begin{equation}
+dQ\equiv\tau d\sigma
+\end{equation}
+However, it should be noted that the change of thermodynamic properties, also known as work, does not change entropy if it's in a reversible process, as entropy would remain constant. It should also be noted that two systems in contact have energy conserved, but not entropy for all cases.
+We should be able to know energy conservation for thermodynamic processes as the following:
+\begin{equation}
+dU=\dbar W+\dbar Q
+\end{equation}
+The $\dbar$ denotes that the path which the process travels through matters and cannot be ignored.
+\subsection*{Heat Engines: Conversion of Heat to Work}
+So heat engines convert Heat $\leftarrow$ Work + Less Heat, work can be fully converted to heat, but heat cannot be fully converted into work, because work can be a bitch like that and not reciprocate. Also, when dealing with heat engine, we can get rid of the derivatives from a previously mentioned equation to get Q=$\tau \sigma$ and find the necessary things for a single point. Work in a reversible process is:
+\begin{equation}
+W=Q_h-Q_l
+\end{equation}
+The Q's can be replaced with equivalent values in terms of one another using the fact that entropy is constant in a reversible process using Q=$\tau \sigma$. The Carnot efficiency is the highest possible efficiency for a reversible process. It can be exemplified by the following equation:
+\begin{equation}
+\eta_C=\bigg[\frac{W}{W_h}\bigg]_{Rev}=\frac{\tau_h-\tau_l}{\tau_h}
+\end{equation}
+The real world isn't so great, and irreversible processes, which is a process where entropy is gained through the engine, the Carnot efficiency is unattainable since $\sigma_l\geq\sigma_h$ and the engine will provide some entropy to the cold reservoir. If we wanted to, we could replace $\sigma$ with values of Q or $\tau$ from the previous relations, as they still apply in irreversible processes. 
+
+\subsection*{Refrigerators}
+Basically they're reverse heat engines and use the same equations. The coefficient of refrigeration is:
+\begin{equation}
+\gamma_c =\frac{Q_l}{W}
+\end{equation}
+I guess this could be used for regular heat engines, but it would be negative, since this is work supplied and in heat engines, work is "created". This is only for reversible processes, so for real processes, just use a tactical inequality and it will apply to irreversible processes and the values for Q$_l$ and W will have to be those for irreversible processes as well.
+
+\subsection*{Carnot Cycle}
+The Carnot Cycle is a combination of 2 isothermal and 2 adiabatic processes, we can make a PV diagram or $\sigma\tau$ diagram of it to calculate the values we want, the PV is for work and the $\sigma\tau$ is for Q, just do a tactical integration and you got it. Now, we can use surface integrals to find the change in total energy:
+\begin{equation}
+\oint dU=\oint \tau d\sigma - \oint pdV
+\end{equation}
+Using the picture for Carnot Cycles, we can also find Q=d($\sigma \tau$) and then just set one value equal to 0 since there will either be an isothermal or adiabatic process that takes place. 
+
+\section*{Exam 3 Review}
+\subsection*{How to Calculate Work done by a system and heat delivered to a system for a specified cycle or portion of such a cycle. How to tell change in internal energy if the working substance is an ideals gas}
+	
+\end{document}

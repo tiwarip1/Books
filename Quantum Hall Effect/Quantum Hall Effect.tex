@@ -1,0 +1,170 @@
+\documentclass[14pt]{article}
+\usepackage[version=4]{mhchem}
+\usepackage{mathrsfs,relsize,makeidx,color,setspace,amsmath,amsfonts,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{bm,ltablex,microtype}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[top = 1in, bottom = 1in, right = 1in, left = 1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{blindtext}
+\usepackage{MnSymbol,wasysym}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+\usepackage{hyperref}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+
+\title{The Quantum Hall Effect}
+\author{Pranjal Tiwari}
+\begin{document}
+
+\maketitle
+
+\subsection*{Introduction}
+
+The Quantum Hall Effect, as the name would imply, is a quantum mechanical version of the Hall Effect, specifically in a two-dimensional electron systems at low temperatures and under the influence of strong magnetic fields. To better understand this phenomena, it is useful to understand it's classical counterpart, the Hall effect, which applies to conductors in the presence of a magnetic field.
+
+\subsection*{Classical Hall Effect}
+
+The Hall Effect is a phenomena that occurs when a neutral conductor is placed perpendicular to a magnetic field and has a current going through it. The conductor will have electrons moving through it and they will be moving perpendicular to a magnetic field, they would be deflected within the conductor causing a higher density of negative charges on one side of the metal than the other. An asymmetric distribution of charge creates an electric field, which in this case would run through the metal orthogonal to $\vec{I}$ and $\vec{B}$. We can put a voltmeter on either end of the metal and find the strength of the electric field, which is correlated with the strength of the magnetic field present. A depiction of this can be found in Fig. 1.\\
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{hall.png}
+	\label{fig:sheet1}
+	\caption{Depiction of the Hall Effect\cite{hepic}}
+\end{figure}
+
+We can find the magnetic field using the following equation:
+
+\begin{equation*}
+V_H=\frac{IB_z}{ned} \rightarrow B_z=\frac{V_Hned}{I}
+\end{equation*}
+
+Where $V_H$ is the hall voltage from the voltmeter, $I$ is the current that flows through the metal and $n$ is the density of electrons throughout the metal. This equation was derived by using the force caused by a magnetic field on an electron and the equation for current from the drift velocity of an electron moving through the material.\\
+
+A device such as this is very useful when the strength of a magnetic field needs to be tuned at a certain point, as edge effects make finding the magnetic field analytically difficult. This can be done because a device can be set to use a defined material with a set current running through it giving all but the Hall Voltage for the equation to find the magnetic field, which can be found from a voltmeter\cite{qhe talk}.
+
+\subsection*{Quantum Hall Effect}
+
+With the classical version of the Hall Effect explained, we can move on to the quantum mechanical version of it, which is most applicable to two dimensional lattices at low temperatures. If we are given a lattice and a current is run through it given the previously stated prerequisites are met, we can derive the Hall Conductance by finding the current as a function of Hall Voltage.\\
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{hcd.png}
+	\label{fig:sheet6}
+	\caption{Geometry of thought experiment to derive the Hall Voltage\cite{kittel}.}
+\end{figure}
+
+To derive this equation, we can imagine a two-dimensional lattice wrapped in the form of a cylinder as above with the current and $\phi$ directions labeled, where $\phi$ is magnetic flux. We can use electromagnetic relations, which relate $I$ to $U$ as being,
+
+\begin{equation*}
+I=c\frac{\delta U}{\delta \phi},
+\end{equation*}
+
+where $\delta U$ is the variation of electronic energy from the small variations $\delta \phi$ of the flux. If an electron contributes to the Hall Voltage, it has a certain energy to it, which has a value of $eV_H$ and with $N$ occupied states, the total energy is $NeV_H$. The variation in flux would be $\phi=hc/e$. We can then find the Hall current and use the following equation for Hall Conductance($\sigma$)\cite{kittel}:
+
+\begin{equation}\label{eq:1}
+\sigma = \frac{I}{V_H} = \nu\frac{e^2}{h}
+\end{equation}
+
+Where $\nu$ can vary depending on the properties of the material and is named the filling factor that can have either integer or fractional values. Due to the fact the filling factor can have integer or fractional value, the quantum hall effect will be expressed in two different ways corresponding to the different types of values $\nu$ takes on. The difference between the two is due to the electron-electron interactions, which causes $\nu$ to diverge from integer values\cite{kittel}.\\
+
+The interesting fact about this finding is this has units of [$\Omega$]$^{-1}$ and is dependent on fundamental constants, not defects or the size of the sample. This is interesting because any number of perturbations can exist within a lattice while still returning a constant value for the hall conductance\cite{qhe talk}.
+
+\subsection*{Integer Quantum Hall Effect}
+
+The integer quantum hall effect is easier to explain and will be mentioned first. Given a lattice with a given potential that is not strongly dependent on electron-electron interactions, it can be found that the filling factor given in Eqn.\eqref{eq:1} has integer values due to the experimental setup.\\
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{qhe.jpg}
+	\label{fig:sheet2}
+	\caption{Diagram of the experimental setup to measure the hall conductance\cite{setup}}
+\end{figure}
+
+Fig. 3 shows the setup for how Hall Conductance is measured and how it changes as magnetic field strength is increased given a current running along the length $L$. This is the same experimental setup for the Classical Quantum Hall Effect, but with a stronger magnetic field. It should also be noted that there is a voltage orthogonal to the direction of current and magnetic field, much akin to the Classical Hall Effect. At low magnetic fields, this orthogonal voltage is roughly constant and begins to turn into oscillations, then similar to $\delta$-functions at higher magnetic fields. This is a purely quantum mechanical effect due to the Landau levels of electrons in a magnetic field and these quantized levels can be shown by the plateaus in the graph of Hall resistance in Fig. 3.\cite{qhe talk}\\
+
+These plateaus can also be conceptualized as places where the occupation of states with a magnetic field stay the same. If we look at Fig. 5, you can see that as $\vec{B}$ increases, fewer states will be occupied due to the changing Landau Levels, which will be addressed in the next section. These levels increase in energy with an increasing magnetic field and will thusly have a higher energy than the Fermi Energy of the system after a certain point. These periods in which the occupation of states remains constant with increasing $\vec{B}$ fields correspond with the plateaus in Hall Conductance\cite{qhe paper}\cite{fqhe talk}.
+
+\subsection*{Landau Levels}
+
+The quantization of Landau levels is important to understand for this effect and is thusly given its own section. In quantum mechanics, the energy of systems are quantized to have certain discrete energy values depending on the potential the system experiences. To explain Landau Levels, we can give the system a harmonic oscillator potential with energies at $E=(n+1/2)\hbar\omega$. If a magnetic field were to be applied to the system, a charged particle in motion would begin to oscillate in quantized cyclotron orbits due to the fact that its energy is also quantized, as can be seen in Fig. 4. These quantized cyclotron orbits are what is referred to as Landau Levels with quantized energies.\\
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{landau.png}
+	\label{fig:sheet3}
+	\caption{Depiction of the quantization of Landau Levels\cite{llpic}}
+\end{figure}
+
+The levels after the lowest energy Landau Levels would have energy gaps of $\hbar\omega$ between the nearest energy level. If any of these levels were larger than the Fermi Energy of the system, the levels would not be occupied\cite{kittel}.
+
+\subsection*{Occupied States}
+
+With the quantization of cyclotron orbits explained, the Fermi energy can be mentioned. It is known that when a particle is placed in a strong magnetic field, the energy of the Landau Levels of a particle splits due to increasing magnetic field strength. Since our system is defined as having a strong magnetic field, this splitting will occur and can be very large. \\
+
+It is also known that the Fermi Energy for a system at low temperatures determines which energy states are occupied. Given splitting of these energy values occurs and becomes larger, it can be presumed that at large splitting, some of these states will become unoccupied since the Fermi Energy stays constant. \\
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{llqhe.png}
+	\label{fig:sheet4}
+	\caption{Occupation of states with increasing magnetic field strength\cite{hee}}
+\end{figure}
+
+The occupation of these states is plotted vs energy, as in Fig. 5, it can be ascertained that the occupation of these states are correlated with the plateaus found in the plot of hall resistance. So the reduced occupation of electrons in certain energy levels cause changes in the Hall Resistance.
+
+\subsection*{Fractional Quantum Hall Effect}
+
+The Fractional Quantum Hall Effect occurs when a lattice experiences a potential that has a non-negligible contribution from electron-electron interactions. This is a more complicated topic, as perturbations to a potential of any kind will result in a more complicated system. While the integer version of this effect is straight forward and visually appealing, the fractional version is messy, as can be seen though Fig. 6. If a system that exhibits the integer quantum hall effect were to be put in a very high magnetic field, with the previously mentioned knowledge, it would be expected that for the system to be in the lowest energy state, it would arrange itself in a lattice just like ions. But that is not consistent with experiment.\\
+
+The system formed an incompressible quantum liquid\cite{fqhe talk} that created plateaus for values of the hall conductance at values that look like,
+
+\begin{equation*}
+\sigma=\frac{p}{q}\frac{e^2}{h},
+\end{equation*}
+
+where $q$ can be an odd positive integer or 2, while $p$ can be any positive integer. The system actually minimizes its energy by forming gaps at these fractional values and forming plateaus when plotting hall conductance. If we look at what happens when a plateau is found for the hall conductance when dealing with only the integer quantum hall effect, we say that the hall conductance is quantized at this constant value and the same can be said for the fractional quantum hall effect, the only difference being the fractional filling factor of $p/q$.\cite{fqhe talk}\cite{fqhetransport}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fqhe.jpg}
+	\label{fig:sheet5}
+	\caption{Longitudinal and Hall resistance vs. magnetic field, showing the integer and fractional quantum Hall plateaus\cite{fqhepic}}
+\end{figure}
+
+This fractional filling does not occur in the low magnetic field system since we can assume there was no interactions between electrons. But what's more interesting is that excitation of this system above the ground state have fractional values, so whatever causes the hall conductance to be quantized at fractional values must also be a fractionally charged. This would lead to the idea that electrons are not carrying the current that causes hall conductance, but rather something called composite fermions\cite{fqhe talk}\cite{other}.
+
+\subsection*{Quantum Anomalous Hall Effect}
+
+This is a phenomena related to the integer quantum hall effect that occurs in metals at temperatures close to 0 K with a current running through it. It is the quantum mechanical version of the anomalous hall effect, as the name implies. This effect causes the manifestation of a hall conductance with no external magnetic field is present within a metal due to the magnetic polarization and spin-orbit coupling between the electrons and protons as current runs through the metal. It is similar to the integer quantum hall effect, as the hall conductance is quantized at integer values of $e^2/h$, simply with no magnetic field. This effect is was only recently found, so it along with most of the topics mentioned here are currently being studied\cite{aqhe}.
+
+\subsection*{Conclusion}
+
+The hall effect is very useful for macroscopic applications and is used by many modern devices. However, when this system is taken to extremes, where temperature is low and magnetic fields are strong, quantum mechanics begins to have more of an effect. At this limit, perturbations in the lattice potential can have significant effects and reveal previously unknown behaviors. Metals near absolute zero in an external magnetic field with current running perpendicular to the magnetic field have contributions to the voltage created by the magnetic field that arise from quantum mechanical properties of the metal and create perturbations in the voltages found in the metal.
+
+\begin{thebibliography}{1}
+	\bibitem{qhe talk}Quantum Hall Effect Explanation: \url{https://www.youtube.com/watch?v=SpZqmZPtj9I}
+	\bibitem{setup}J. Weis, K. von Klitzing Phil. Trans. R. Soc. A 2011 369 3954-3974
+	\bibitem{qhe paper}F. D. M. Haldane (1988). "Model for a Quantum Hall Effect without Landau Levels: Condensed-Matter Realization of the "Parity Anomaly"". Physical Review Letters. 61 (18): 2015–2018
+	\bibitem{fqhe talk}Fractional Quantum Hall Effect Explanation: \url{https://www.youtube.com/watch?v=4gSJSo3olfg}
+	\bibitem{fqhetransport}D.C. Tsui; H.L. Stormer; A.C. Gossard (1982). "Two-dimensional magnetotransport in the extreme quantum limit". Physical Review Letters. 48 (22)
+	\bibitem{aqhe}Liu, Chao-Xing; Zhang, Shou-Cheng; Qi, Xiao-Liang (2015-08-28). "The quantum anomalous Hall effect"
+	\bibitem{other}Greiter, M. (1994). "Microscopic formulation of the hierarchy of quantized Hall states". Physics Letters B. 336: 48
+	\bibitem{kittel}Kittel, Charles. "Introduction to Solid State Physics"
+	\bibitem{fqhepic} Ferry David. "Transport in Semiconductor Mesoscopic Devices"
+	\bibitem{hee}Level Occupation Picture: http://www.referatele.com/referate/fizica/online4/HALL-EFFECT---Explanation-of-the-Quantum-Hall-Effect-referatele-com.php
+	\bibitem{llpic}Landau Levels Picture: https://www.sp.phy.cam.ac.uk/research/fundamentals-of-low-dimensional-semiconductor-systems/lowD
+	\bibitem{hepic}Hall Effect Picture: http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/Hall.html
+	
+\end{thebibliography}
+
+\end{document}

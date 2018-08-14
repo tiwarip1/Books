@@ -1,0 +1,122 @@
+\documentclass[11pt,onecolumn]{article}
+\usepackage[version=4]{mhchem}
+\usepackage{mathrsfs,relsize,makeidx,color,setspace,amsmath,amsfonts,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{bm,ltablex,microtype}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[top = 1in, bottom = 1in, right = 1in, left = 1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{blindtext}
+\usepackage{MnSymbol,wasysym}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{kantlipsum}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{A brief review of whatever I care about from Magnetism in Condensed Matter by Stephen Blundell}
+\author{Pranjal Tiwari}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+
+Contributions to the magnetic properties of a material is determined primarily by the electrons of said material. Specifically because of the magnetic moment of the electrons in question, which is caused by the spin of the electron. The manner in which neighboring atoms arrange the spins of their electrons determines the types of magnetic properties a material. Examples will be given soon, particularly the exchange section.
+
+\section{Isolated Magnetic Moments}
+
+\subsection{An Atom in a Magnetic Field}
+
+There are two main types of magnetism that will be discussed in this section, paramagnetism, where electron spins align along the direction of an applied magnetic field and diamagnetism, where electrons spins align against the direction of an applied magnetic field. The hamiltonian of a system is important in determining whether it is dominated by paramagnetic or diamagnetic properties.\\
+\\
+If we were to construct a hamiltonian, we would need to determine the kinetic energy of an electron in an applied magnetic field to determine if it is paramagnetic or diamagnetic. To find the momentum, we can use the canonical momentum, which is defined as:
+
+\begin{equation*}
+\vec{p}=m\vec{v}-q\vec{A}
+\end{equation*}
+
+Where $A$ is the vector potential at a given position. Summing this over atoms in a lattice and putting it in a hamiltonian with a little bit of magic, we get:
+
+\begin{align*}
+H &= \sum_{i=1}^{Z}\bigg(\frac{(\vec{p}_i+e\vec{A}(r_i))^2}{2m_e}+V_i\bigg)+g\mu_B\vec{B}\cdot\vec{S}\\
+&= \sum_{i} \bigg(\frac{\vec{p}_i^2}{2m_e}+V_i\bigg)+\mu_B(\vec{L}+g\vec{S})\cdot\vec{B}+\frac{e}{8m_e}\sum_{i}(\vec{B}\times\vec{r}_i)^2\\
+&= H_0+\mu_B(\vec{L}+g\vec{S})\cdot\vec{B}+\frac{e}{8m_e}\sum_{i}(\vec{B}\times\vec{r}_i)^2\\
+\end{align*}
+
+This has two terms in it that are important, the first of which is the paramagnetic term ($\mu_B(\vec{L}+g\vec{S})\cdot\vec{B}$) followed by the diamagnetic term ($\frac{e}{8m_e}\sum_{i}(\vec{B}\times\vec{r}_i)^2$). The diamagnetic term exists at all times, sometimes to a lesser extent compared to the paramagnetic term, but the other can vanish in some cases.
+
+\subsection{Magnetic Susceptibility}
+
+Magnetic susceptibility ($\chi$) tells whether a material is para or diamagnetic by whether this quantity is positive or negative respectively. It is found for a linear material using:
+
+\begin{equation*}
+\vec{M}=\chi\vec{H}
+\end{equation*}
+
+\subsection{Rest of the chapter}
+
+The rest is a bunch of equations on finding magnetization and thermodynamic properties as they evolve with temperature and magnetic field, so boring. The important thing to note is that paramagnetism becomes $\vec{J}$ dependent.
+
+\section{Environments}
+
+This chapter talks about how the lattice interacts with the orbitals of an atom in said lattice.
+
+\subsection{Crystal Fields}
+
+This is an electric field caused by the presence of neighboring atoms and their respective charge. Electrons screen the charge of a nucleus at large distances, but at smaller ones, it becomes more of an issue, which is why it occurs in crystals and not gases. Effectively, this a perturbation of the energies of the d-orbitals of an atom, so only transition metals and higher can experience this effect.\\
+
+Since 10 electrons can occupy a d-orbital, two can occupy each configurations found in Figure \ref{fig:1}. One thing to note is the orientations are very important, as lattice points will be placed along the axes, so the direction in which the lobe is oriented will be important.
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=.5\columnwidth]{figures/crystal_orbitals.png}
+		\caption{D-orbital orientations}
+		\label{fig:1}
+	\end{center}
+\end{figure}
+
+Often times in crystals with transition metals, the metal atoms are surrounded by a cage of different atoms on all 6 sides, like Oxygen for example, as can be seen in Figure \ref{fig:2}. This material, $La_2CuO_{4}$, is a superconductor. 
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=.5\columnwidth]{figures/LaCuO.jpg}
+		\caption{Configuration of $La_2CuO_{4}$}
+		\label{fig:2}
+	\end{center}
+\end{figure}
+
+Given an oxygen cage around a copper atom, you can see that if the interatomic distance is small enough, the $d_{z^2}$ and $d_{x^2-y^2}$ orbitals would interact directly with the p orbitals of the oxygen. Since these orbitals both are meant to contain electrons and they are repulsive to one another, an electron needs to have a higher energy to occupy these intersecting orbitals than the non-intersecting $d_{xy}$, $d_{xz}$ or $d_{yz}$ orbitals.\\
+
+This would change the energy diagram of an electron in the d-orbital to look similar to the left side of Figure \ref{fig:3}. The lower energy orbitals are referred to as the $t_{2g}$ orbitals, while the higher energy ones are the $e_g$ orbitals.\\
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=.7\columnwidth]{figures/jahn-teller.jpg}
+		\caption{Energy levels of  the $Cu$ in $La_2CuO_{4}$ with the crystal field}
+		\label{fig:3}
+	\end{center}
+\end{figure}
+
+The disparity in energy of orbitals along the z-direction on the right side of Figure \ref{fig:3} is due to something called the Jahn-Teller effect, which states that it is more energetically favorable for the oxygen cage to spontaneously distort itself along the z-axis and have the Copper electrons occupy orbitals along this axis before others.
+
+\subsubsection{Why this is cool}
+
+Going back to Figure \ref{fig:2}, there are 2D planes of Copper and Oxygen and from our condensed class, we know that a 2D system with one electron in an orbital along this plane makes the material a conductor and that is effectively what we have here. Copper has 9 electrons in the d-orbital and the partially filled one is along the xy-plane, so it ends up being able to exchange electrons along this axis with the oxygen and form cooper pairs due to this exchange.
+
+\subsection{Rest of Chapter}
+
+On NMR techniques and spectroscopy, which is so boring I fell asleep writing this summary
+
+\section{Exchange Interactions}
+
+
+
+
+\end{document}

@@ -1,0 +1,11 @@
+## Latex crap
+*.aux
+*.log
+*.bbl
+*.out
+*.gz
+
+## Pictures
+*.png
+*.jpg
+*.jpeg

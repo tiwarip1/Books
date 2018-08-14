@@ -1,0 +1,195 @@
+\documentclass[garamond]{article}
+\usepackage[version=4]{mhchem}
+\usepackage{mathrsfs,relsize,makeidx,color,setspace,amsmath,amsfonts,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{bm,ltablex,microtype}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[top = 1in, bottom = 1in, right = 1in, left = 1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{blindtext}
+\usepackage{MnSymbol,wasysym}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{Quantum Mechanics II}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\section{Perturbation Theory}
+So, in life things aren't easy and neither is finding the energy and eigenstate of a particle in a perturbed potential. I know, life sucks doesn't it. But hey, we can approximate what this stuff should look like. Imagine we have an infinite potential well with a little bump at one point, this would cause a change in the energy and eigenstates possible and if the perturbation were more extreme, it would be impossible to find an exact solution, so we will obviously Taylor Expand things to make them simpler and close enough to the right answer. This is what perturbation theory is all about, find a solution that is close enough for a really difficult potential.
+
+\subsection{Defining Everything}
+So we should be given a Hamiltonian, as we can't really find the solutions to the other stuff without knowing how much the perturbation affects the Hamiltonian, which will tell us how it affects the energy and eigenstate of the particle, like we already know from Quantum I. The overarching idea behind this is that if we know the perturbed Hamiltonian, we can use that to find the perturbed energy and eigenstates and these will be our corrections to the original unperturbed solution. So given a Hamiltonian that looks like:
+\begin{equation}
+H=H^0+\lambda H^1
+\end{equation}
+Where H$^1$ is the Hamiltonian caused by the perturbation of the potential and $\lambda$ can be any constant, since we'll get rid of it later on. We can use Taylor Expansions to represent the subsequent energy and eigenstates as an infinite sum, where higher order terms become more insignificant. They can be shown as:
+\begin{equation}
+\Psi_n=\Psi_n^0+\lambda\Psi_n^1+\lambda^2\Psi_n^2...
+\end{equation}
+\begin{equation}
+E_n=E_n^0+\lambda E_n^1+\lambda^2E_n^2...
+\end{equation}
+And if we simply use $H\Psi_n=E_n\Psi_n$ and just solve for the corrections with everything above, we get something that looks like:
+\begin{equation*}
+H^0\Psi^0_n+\lambda(H^0\Psi^1_n+H^1\Psi^0_n)+\lambda^2(H^0\Psi^2_n+H^1\Psi^1_n)+... = E_n^0\Psi^0_n+\lambda(E^0_n\Psi^1_n+E^1_n\Psi^0_n)+\lambda^2(E^0_n\Psi^2_n+E^1_n\Psi^1_n+E^0_n\Psi^2_n)+...
+\end{equation*}
+The actual equation itself can be ignored, just remember the relation that the Hamiltonian has to the eigenstate and the energy to the eigenstate as it relates to the power of lambda being evaluated, lambda being the order of which correction we are trying to find. You can see that the orders of each of the terms add up to equal the order of $\lambda$ that we are looking for. So, for the first order corrections, we can just take the first order $\lambda$ term and use that:
+\begin{equation}
+H^0\Psi^1_n+H^1\Psi^0_n=E^0_n\Psi^1_n+E^1_n\Psi^0_n
+\end{equation}
+And the second order correction would be:
+\begin{equation}
+H^0\Psi^2_n+H^1\Psi^1_n=E^0_n\Psi^2_n+E^1_n\Psi^1_n+E^0_n\Psi^2_n
+\end{equation}
+And so on, but I doubt you will be asked anything higher than that in any kind of exam.
+\subsection{First-Order Correction to Energy}
+To find the first order correction to the energy, you just need to take the inner product with $\Psi^0_n$ for the above equation on the first order and rearrange to get:
+\begin{equation}
+E^1_n=\langle\Psi^0_n|H^1|\Psi^0_n\rangle
+\end{equation}
+So if we have an infinite well with a perturbation over a certain area, we just take the integral of the wave function of an infinite square well over the affected area, so:
+\begin{equation}
+E^1_n=\int sin^2\Big(\frac{n\pi x}{a}\Big)H^1dx
+\end{equation}
+
+\subsection{First Order Correction to Wave Function}
+The Wave Function is a bit of a different story, it can have multiple energy possibilities within it and it looks more complicated:
+\begin{equation}
+\Psi^1_n=\sum_{m\neq n} \frac{\langle \Psi^0_m|H^1|\Psi^0_n\rangle}{E^0_n-E^0_m}\Psi^0_m
+\end{equation}
+The sum makes it such that H$^1$ has to have raising and lowering operators to return a non-zero result. Also, you may notice that the numerator looks like the first order energy correction, well it does and that term not including the $\Psi^0_n$ is actually the coefficient for the state $\Psi^0_m$, so if you ever need to find the probability of a state, that's how you do it. Depending on how many operators H$^1$ has, you really only need to do a sum over a few values, so it may look intimidating but when you get down to it, it's not that hard. To make this a little easier, lets take the example of a first order correction to a perturbed infinite potential well:
+\begin{equation}
+\Psi^1_n=c^{(n)}_msin\Big(\frac{m\pi x}{a}\Big)
+\end{equation} 
+
+\subsection{Second Order Correction to Energy}
+Now we are getting into smaller and smaller corrections, since these energy corrections come from Taylor expansions and they get smaller with higher order terms. But sometimes the first order correction to the energy is 0, we if we want any corrections at all, we will have to go to the second order. Here's how you do it:
+\begin{equation}
+E_n^2=\sum_{m\neq n} \frac{|\langle \Psi^0_m|H^1|\Psi^0_n\rangle|^2}{E^0_n-E^0_m}
+\end{equation}
+This probably looks a lot like the first order correction to the wave function, well that's kinda where it comes from and it gets messy really fast, so anything higher than second order energy just look up in a book or something, no need to actually remember them.
+
+\section{Degenerate Perturbation Theory}
+Degenerate perturbation theory builds on the regular perturbation theory but this time, we have to actually deal with the matrices of the Hamiltonian and solve for the off diagonal matrix elements, which can take a while, but have no fear, there are selection rules that can help find the elements that are non-zero. One thing to note is that the matrices get larger with degeneracy, so if you have a degeneracy of 9, you will have a 9x9 matrix. Degeneracy at least for the hydrogen atom goes like 2n$^2$, something to remember as a check to see if you did everything right.
+
+\subsection{How do I do it?}
+Well, usually you will have operators in the Hamiltonian, like $L_x=(L_++L_-)/2$ and then put that in between two state functions that are originally orthogonal to one another and see which combinations of the possible quantum numbers can return a non-zero delta function:
+\begin{equation}
+\langle \Psi_m^0 | L_x | \Psi_n^0\rangle
+\end{equation}
+That is literally it, nothing fancy just do all the matrix elements of the Hamiltonian that aren't on the diagonal, since everything on the diagonal will always be 0 if we are working with raising and lowering operators, and just solve for the energy eigenvalues of the result with the specified quantum numbers like normal.
+\subsection{Selection Rules}
+There are actually some rules that you can use to make a massive matrix more manageable, like just straight up ignoring some matrix elements that we can just by looking at them tell that they will be 0. All the following rules will be referring to a state that looks like $\langle n' l' m' |H|nlm\rangle$ \\
+\\
+The first of these comes from parity arguments, where $\vec{r}=-\vec{r}$ and in doing so, the spherical harmonics gets an additional factor of $\pi$ in it and that messes with some stuff such that l'+l=odd, meaning that either l' has to be even and l has to be odd, or l has to be odd and l' has to be even, any other combination would result in an even number.
+\begin{equation}
+l'+l=odd
+\end{equation}
+Second is something that results from the fact that $[L_x,x]=0$ and this commutation relation when replaced with the Hamiltonian causes a selection rule for the values of m:
+\begin{equation}
+m'=m
+\end{equation}
+And this should be all the selection rules that you would need, just remember that l can only be positive, while m can be positive and negative.
+\section{Fine Structure of Hydrogen}
+So we know the general Hamiltonian for hydrogen is just the kinetic energy of the electron plus the the Coulomb potential energy, but there are some corrections for stuff like relativistic, spin-orbit corrections, the lamb shift and something called hyperfine splitting. The major component of these is the relativistic correction and spin-orbit coupling. A decent approximation to make is that:
+\begin{equation}
+E_{FS}^1\approx E^0\frac{v}{c^2}\approx E^0\alpha^2
+\end{equation}
+\subsection{Relativistic Correction}
+The relativistic correction is pretty self explanatory, it changes the Hamiltonian such that it uses relativistic velocities instead of classical velocities with a modified kinetic energy term:
+\begin{equation}
+T=mc^2\bigg[\sqrt{1+\Big(\frac{p}{mc}\Big)^2}-1\bigg]=mc^2\bigg[1+\frac{1}{2}\bigg(\frac{p}{mc}\bigg)^2-\frac{1}{8}\bigg(\frac{p}{mc}\bigg)^4...-1\bigg]=\frac{p^2}{2m}-\frac{p^4}{8m^3c^2}+...
+\end{equation}
+We just Taylor expanded the square root and got the lowest order relativistic correction to the Hamiltonian for a general case. Now that we have the correction, we can use perturbation theory to get the first order correction to the energy:
+\begin{equation}
+E_r^1=\langle H \rangle = \frac{-1}{8m^3c^2}\langle \Psi |p^4\Psi\rangle = \frac{-1}{8m^3c^2}\langle p^2\Psi |p^2\Psi\rangle=\frac{-1}{2mc^2} (E-\langle V\rangle)^2
+\end{equation}
+We can distribute p because it commutes with the Hamiltonian. So, we have the first order relativistic correction to the energy for a general case, now we just have to use the $\langle V\rangle$ for the hydrogen atom, which we can look up and that's our answer for the hydrogen atom. This looks ugly, so we can simplify this down to:
+\begin{equation}
+E_r^1=\frac{-(E_n)^2}{2mc^2}\bigg[\frac{4n}{l+\frac{1}{2}}-3\bigg]
+\end{equation}
+\subsection{Spin-Orbit Coupling}
+After working on the relativistic term, I don't think I need to know the fine detail as to how to derive these correction terms, so I'll just explain them. The Spin-Orbit Coupling term comes about from the fact that the electron in the hydrogen atom system orbits around the proton. This motion along with the fact that the proton has a magnetic moment, which creates a magnetic field, which the electron "moves" through. This would exert a torque on the spinning electron, tending to align its magnetic moment along the direction of the field. So we add that to the relativistic term and the Darwin Term, which only exists at l=0 and no that important to get:
+\begin{equation}
+E_{FS}^1=\frac{(E_n^0)^2}{2mc^2}\bigg(3-\frac{4n}{j+\frac{1}{2}}\bigg)
+\end{equation}
+
+\subsection{Darwin Term}
+I dunno where this comes from, not even Schmidt knows, but it exists only in the l=0 state and it is there, you will likely be given it, so don't worry too much about it.
+
+\section{The Zeeman Effect}
+If we place an atom in a uniform magnetic field, it will cause a shift in the energy levels, this effect is usually small compared to the fine structure constant, but if the magnetic field is strong enough, it will have a significant contribution. Now, we won't actually have a strong magnetic field, since that would require degenerate perturbation theory, but it is important to understand how the Zeeman effect shifts the energy levels of an atom. So we can define the Hamiltonian shift caused by this effect as:
+\begin{equation}
+H_Z^1=\frac{e}{2m}(\vec{L}+2\vec{S})\vec{B}_{ext}
+\end{equation}
+This will continue to be used as we talk about weak Zeeman effects.
+\subsection{Weak-Field Zeeman Effect}
+First of all, we will be using the $m_j$ quantum number instead of $m_l$ and $m_s$ separately, since the $m_l$ and $m_s$ quantum numbers are not conserved separately, but the $m_j$ is conserved and s will always be $\frac{1}{2}$. When B$_{ext}\ll$B$_{int}$, then the contribution of the Zeeman Term is small, which is what we are concerned with at the moment. So, to get the Zeeman Term, we just have to put the Hamiltonian above take the inner product of it with two state functions with quantum number n, l, j, m$_j$. After that, we do some fancy algebra and clever definitions, we can get a first order contribution to the energy is:
+\begin{equation}
+E_Z^1=\mu_Bg_J\vec{B}_{ext}m_j
+\end{equation}
+Where g$_J$ is the Lande g-factor and $\mu_B$ is the Bohr Magneton, which is just a constant. The Lande g-factor can be evaluated for an arbitrary particle using the following:
+\begin{equation}
+g_J=\bigg[1+\frac{j(j+1)-l(l+1)+\frac{3}{4}}{2j(j+1)}\bigg]=\bigg[1+\frac{\langle S_Z\rangle}{m_j\hbar}\bigg]
+\end{equation}
+If you want to know the total energy, it's the sum of the fine structure equation and the various contributions from the Zeeman Term. This Term can be multiple different values because of the m$_j$, which can range between -j$<m_j<$j. But since we are dealing with the weak version of the Zeeman Effect, the addition will be small, but not always negligible.\\
+\\
+The Zeeman Effect can be stronger in a strong magnetic field, but we will not talk about that as that is more graduate level quantum than undergraduate and you will not really need that...yet...
+
+\section{Hyperfine Structure}
+My favorite pick up line: "gurl you got some hyperfine structure on ya", 20$\%$ of the time it works every time. On to what this actually is, Hyperfine Splitting is the difference in energy caused by the interactions between magnetic moments associated with electron spin and the magnetic field caused by the proton and vice versa. This interaction is on the order of 10$^-3$ smaller than the energy shift caused by Fine Structure, this is because the quotient between the mass of the electron and proton is about 10$^-3$. Why might this be pertinent to anything you may ask? well you know all that hydrogen gas that is roaming around the universe? That Hydrogen can be in an "excited ground state" as it were, where it would be considered to be in the ground state without hyperfine splitting, but if we include it there will be plenty of hydrogen that can be lowered into a lower energy state. This difference in energy caused by hyperfine splitting has a very specific wavelength, which could tell us the abundances of hydrogen. This is how we figured out the Milky Way is a spiral galaxy.\\
+\\
+Moving on to how to find this splitting, understand that the proton and electrons spins can either be aligned or anti-aligned, which would equate to s=1 or 0. This means both spins are coupled and this can be seen by the first order correction to hyperfine splitting:
+\begin{equation}
+E_{hf}^1=\frac{\mu_0g_pe^2}{3\pi m_pm_ea^2}\langle \vec{S}_p\cdot\vec{S}_e\rangle
+\end{equation}
+There are two possible states the splitting could be in, a triplet or singlet state. The singlet has lower energy, so Hydrogen in the ground state occupying the triplet structure will de-excite to the singlet state, which brings it down to the true ground state. A good approximation to make is that:
+\begin{equation}
+E_{HF}^1\approx E_{FS}^1\frac{m_e}{m_p}\approx\frac{E_{FS}^1}{1000}
+\end{equation}
+
+\section{Variational Theorem}
+The idea behind the variational theorem is that we can find the a low energy state and if its low enough, then it should be close to the ground state, which is the lowest possible energy state something could be in. In doing so, we can actually find the energy of a ground state to a decent degree of accuracy, but the result will always be larger than it and that should be noted. If we used first order perturbation theory, we would have had a larger difference and through this process, we can get a more accuracy approximation of the ground state energy. But you should know, that this is actually stupid easy, even Griffith says so. It will give you a number for the ground state of a wave-function that cannot be solved using the schr$\ddot{o}$dinger equation, so that's useful.
+
+\subsection{Lemme tell ya how this is gonna work}
+You will be given a trial wave function, you should use that. What you do is you take the Hamiltonian and multiply that my the wave function, then take the integral from -$\infty$ to $\infty$. Then, you will get an energy in terms of a variable that is from the trial wave function, so find the minimum point of this energy as it varies with this variable and plug that value into the energy and you will get the lowest possible energy.
+
+\section{Ground State of Helium}
+Alright, so the Hamiltonian of an atom can be approximated as being a combination of multiple Hydrogen Hamiltonians, so for example, the Hamiltonian of a Helium atom without the fine structure and other smaller corrections would be:
+\begin{equation}
+H=\frac{-\hbar}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi \epsilon_0}\bigg(\frac{2}{r_1}+\frac{2}{r_2}-\frac{1}{|r_1-r_2|}\bigg)
+\end{equation}
+Where the last term is the contribution to the potential caused by the interaction of the electrons. This can be used to calculate E$_{GS}$, which can be thought of as the ionization energy to remove the two electrons from the atom. But this can be extended to an atom of Z protons, but lets not do that, it sounds like we won't need to. But moving on, to get a very crude approximation by ignoring the electron-electron interaction potential, we can just say a Helium atom is two Hydrogen atoms and multiply those wave-functions and this will be very far off from the actual value, but we can build on it with variational theory.
+
+\section{Time-Dependent Perturbation Theory}
+Here, we can consider the case where the Hamiltonian is a combination of the unperturbed and perturbed Hamiltonian with time dependence. We will have a wave function with time dependence represented by:
+\begin{equation}
+|\Psi(t)\rangle=c_1(t)e^\frac{-iE_1t}{\hbar}|\Psi_1\rangle+c_2(t)e^\frac{-iE_2t}{\hbar}|\Psi_2\rangle
+\end{equation}
+In this case, c$_1$(t) and c$_2$(t) are the probabilities for the state to move into a specific state if it starts from state 1, so |c$_2$(t)|$^2$ would be the probability the function would go to state 2 from state 1, where at t=0 state 1 has a probability of 1. So how do we calculate these things? well we will have two coupled differential equations and we will have to solve them as a system of equations:
+\begin{equation}
+\dot{c}_a=\frac{-i}{\hbar}H^1_{ab}e^{-i\omega_0t}c_b
+\end{equation}
+\begin{equation}
+\dot{c}_b=\frac{-i}{\hbar}H^1_{ba}e^{-i\omega_0t}c_a
+\end{equation}
+They are both very similar to one another and they should be. Lets talk about first order first, so to get the first order correction to the coefficient, you just have to take a tactical integral, but basically the equation goes like:
+\begin{equation}
+c_2^1(t)=\frac{-i}{\hbar}\int_{0}^{t'}H^{1*}_{12}(t)e^{i\omega_0t'}dt'
+\end{equation}
+The corrections alternate between the two coefficients, but they are of the same order of $\lambda$, which is why its so weird, to conserve the orders of $\lambda$. The second order correction to the first coefficient is:
+\begin{equation}
+c_1^2(t)=\frac{1}{\hbar^2}\int_{0}^{t}H^1_{12}(t')e^{-i\omega_0t'}\int_{0}^{t'}H^{1*}_{12}(t'')e^{i\omega_0t''}dt''dt'
+\end{equation}
+\end{document}
