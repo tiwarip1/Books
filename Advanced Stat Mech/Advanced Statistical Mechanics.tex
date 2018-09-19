@@ -1,0 +1,53 @@
+\documentclass[11pt,onecolumn]{article}
+\usepackage[version=4]{mhchem}
+\usepackage{mathrsfs,relsize,makeidx,color,setspace,amsmath,amsfonts,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{bm,ltablex,microtype}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[top = 1in, bottom = 1in, right = 1in, left = 1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{blindtext}
+\usepackage{MnSymbol,wasysym}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{kantlipsum}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{Advanced Statistical Mechanics}
+\author{Pranjal "The Mechanic" Tiwari}
+
+\begin{document}
+\maketitle
+
+This document will be a culmination of the topics introduced in each lecture in the Advanced Statistical Mechanics class at the University of Toronto
+
+\section{Introduction Class}
+
+This is more of a mash of knowledge and I'll put it into bullet points.
+
+\begin{itemize}
+	\item When going from one phase to another through a phase transition line, the function that defines an order parameter of the material will likely not be an analytic and smooth function. However, if you go around the critical point if one exists between these two phases, then the transition will be smooth.
+	\item \textbf{Zero-Point Energy}: The energy of a quantum mechanical at 0K, this can be different from the classical minimum energy due to the uncertainty principle. This is a reason why liquid helium still has some kinetic energy and doesn't freeze regardless of temperature.
+	\item Quantum fluids and classical fluids obviously behave differently and they use different statistics, specifically in the quantum part where the fermion boson distinction if pertinent.
+	\item To find what temperature a material acts like a quantum fluid would be the degeneracy temperature:
+	\begin{equation*}
+	T_{deg}\approx\frac{\hbar^2\rho^{2/3}}{m}
+	\end{equation*}
+	Bosons tend to condense at this temperature, but fermions need much lower to actually become a superfluid or something.
+	\item To find the fermion number of a material to determine if it needs Fermi or Bose statistics, you would do the following:
+	\begin{align*}
+	\text{Fermion \# = \# Valence electrons + \# Nucleons}
+	\end{align*}
+	And then whether the fermion number is even or odd will tell you if it requires Bose or Fermi statistics respectively.
+	\item
+\end{itemize}
+
+\end{document}
